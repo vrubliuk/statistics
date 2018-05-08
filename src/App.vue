@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style>
+@import url("../node_modules/animate.css/animate.min.css");
 body {
   margin: 0;
   padding: 0;

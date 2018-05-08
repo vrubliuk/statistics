@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import "font-awesome/css/font-awesome.min.css";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
