@@ -26,7 +26,13 @@ const getters = {
 
 const mutations = {
   increaseCounter: state => {
-    state.counterValue++
+
+    if (state.counterValue < 999) state.counterValue++
+ 
+  },
+  decreaseCounter: state => {
+    if (state.counterValue > 0) state.counterValue--
+   
   },
   resetCounter: state => {
     state.counterValue = 0

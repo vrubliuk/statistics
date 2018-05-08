@@ -9,7 +9,7 @@
 
 
 <script>
-import "font-awesome/css/font-awesome.min.css";
+import $ from "jquery";
 import "animate.css/animate.min.css";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
@@ -20,12 +20,14 @@ export default {
       "counterMaximized",
       "animationType",
       "animationDuration",
-      "animationRunning"
+      "animationRunning",
+      "currentTab"
     ])
   },
   methods: {
     ...mapMutations([
       "increaseCounter",
+      "decreaseCounter",
       "runAnimation",
       "stopAnimation",
       "resizeCounter"
@@ -43,6 +45,17 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    $(document).keydown(key => {
+      if (this.currentTab === "counter") {
+        if (parseInt(key.which, 10) === 38) {
+          this.increaseCounter();
+        } else if (parseInt(key.which, 10) === 40) {
+          this.decreaseCounter();
+        }
+      }
+    });
   }
 };
 </script>

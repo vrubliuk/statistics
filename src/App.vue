@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import "font-awesome/css/font-awesome.min.css";
 import $ from "jquery";
 import { wallpapers } from "./wallpapers";
 import { mapGetters } from "vuex";
@@ -14,6 +15,8 @@ import { mapMutations } from "vuex";
 import Preloader from "./components/Preloader";
 import Navigation from "./components/Navigation";
 import Counter from "./components/Counter";
+import User from "./components/User";
+import Send from "./components/Send";
 import Preferences from "./components/Preferences";
 
 export default {
@@ -31,11 +34,12 @@ export default {
   methods: {
     ...mapMutations(["hidePreloader"])
   },
-
   components: {
     Preloader,
     Navigation,
     Counter,
+    User,
+    Send,
     Preferences
   },
   mounted() {
@@ -51,7 +55,6 @@ export default {
 </script>
 
 <style>
-@import url("../node_modules/animate.css/animate.min.css");
 body {
   margin: 0;
   padding: 0;
