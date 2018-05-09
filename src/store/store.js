@@ -4,6 +4,8 @@ import preloader from './modules/preloader'
 import wallpaper from './modules/wallpaper'
 import tab from './modules/tab'
 import counter from './modules/counter'
+import user from './modules/user'
+import email from './modules/email'
 
 Vue.use(Vuex)
 
@@ -15,6 +17,8 @@ export default new Vuex.Store({
     preloader,
     wallpaper,
     tab,
-    counter
+    counter,
+    user,
+    email
   }
 })

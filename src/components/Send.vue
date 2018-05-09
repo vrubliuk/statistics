@@ -1,18 +1,60 @@
 <template>
   <div class="Send">
     <table class="Send__table">
-      <tr class="Send__main">
-        <td class="Send__tabList">
-          <div class="Send__tab" :class="{'Send__tab-active': tab === currentTab}" v-for="tab in tabs" :key="tab">
-            <div>{{tab}}</div>
-          </div>
-
+      
+      <tr class="Send__table__main">
+        <td>Released:</td>
+        <td>{{counterValue}}</td>
+      </tr>
+      <tr  class="Send__table__main" >
+        <td>Shared inbox:</td>
+        <td>
+          <label class="Send__checkbox">
+            <input class="Send__checkbox__input" type="checkbox">
+            <span class="Send__checkbox__slider"></span>
+          </label>
         </td>
-        <td class="Send__content"></td>
       </tr>
-      <tr class="Send__footer">
-        <button>Create email</button>
+      <tr class="Send__table__main">
+        <td>Audit:</td>
+        <td>
+          <label class="Send__checkbox">
+            <input class="Send__checkbox__input" type="checkbox">
+            <span class="Send__checkbox__slider"></span>
+          </label>
+        </td>
       </tr>
+      <tr class="Send__table__main">
+        <td>Report:</td>
+        <td>
+          <label class="Send__checkbox">
+            <input class="Send__checkbox__input" type="checkbox">
+            <span class="Send__checkbox__slider"></span>
+          </label>
+        </td>
+      </tr>
+      <tr class="Send__table__main">
+        <td>Short-term hold:</td>
+        <td>
+          <label class="Send__checkbox">
+            <input class="Send__checkbox__input" type="checkbox">
+            <span class="Send__checkbox__slider"></span>
+          </label>
+        </td>
+      </tr>
+
+      
+     
+      <tr class="Send__table__footer">
+        <td colspan="2">
+          <button class="Send__button">Create email</button>
+        </td>
+      </tr> 
+      
+
+
+     
+    
 
     </table>
 
@@ -21,12 +63,23 @@
 
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   data() {
     return {
-      currentTab: "Message",
-      tabs: ["Receivers", "Subject", "Message", "Signature"]
+      
     };
+  },
+  computed: {
+    ...mapGetters([
+      'counterValue'
+    ])
+  },
+  methods: {
+    switchTab(tab) {
+      this.currentTab = tab;
+    }
   },
   components: {}
 };
@@ -48,45 +101,105 @@ export default {
   box-shadow: 0 0 8px 0 black;
   background-color: black;
   color: white;
-  padding: 1vw;
+  font-size: 3vw;
+  padding: 1.5vw;
 }
 .Send__table {
   width: 100%;
   height: 100%;
   border-collapse: collapse;
 }
-.Send__main {
-  height: 80%;
+
+.Send__table__main{
+
+  height: 3vw;
+}
+.Send__table td {
+  /* border: 1px solid red; */
+  width: 50%;
+  vertical-align: middle;
 }
 
-.Send__tabList {
-  width: 20%;
-  vertical-align: top;
+.Send__table td:nth-child(2) {
+  text-align: right;
 }
 
-.Send__tab {
-  border-left: 10px solid black;
-  border-right: 10px solid black;
-  color: white;
+
+.Send__checkbox {
+  position: relative;
+  display: inline-block;
+  width: 5vw;
+  height: 3vw;
 }
 
-.Send__tab > div {
+.Send__checkbox input {
+  display: none;
+}
+
+.Send__checkbox__slider {
+  position: absolute;
   cursor: pointer;
-  padding: 0 1vw;
-  font-size: 2vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.Send__tab > div:hover {
+.Send__checkbox__slider:before {
+  position: absolute;
+  content: "";
+  height: 2.4vw;
+  width: 2.4vw;
+  left: 0.3vw;
+  top: 0.3vw;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.Send__checkbox__input:checked + .Send__checkbox__slider {
+  background-color: red;
+}
+
+.Send__checkbox__input:focus + .Send__checkbox__slider {
+  box-shadow: 0 0 1px red;
+}
+
+.Send__checkbox__input:checked + .Send__checkbox__slider:before {
+  transform: translateX(2vw);
+}
+
+.Send__table__footer {
+  text-align: center;
+
+}
+.Send__table__footer td {
+  vertical-align: bottom;
+
+}
+
+
+.Send__button {
+  /* margin: 1vw; */
+  border: none;
+  padding: 0.5vw 1vw;
+  font-size: 3vw;
+  line-height: 3vw;
+  font-family: localImpact;
   background: white;
   color: black;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 0 8px 0 white;
+  width: 100%;
 }
 
-.Send__tab-active {
-  border-left: 10px solid red;
-  color: red;
-}
-.Send__tab-active > div:hover {
-  color: red;
+.Send__button:hover {
+  background: red;
+
+  box-shadow: 0 0 8px 0 red;
 }
 </style>
 

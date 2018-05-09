@@ -25,7 +25,7 @@ export default {
 
 <style>
 .Navigation {
-  height: 24vw;
+  height: 20vw;
   opacity: 0.6;
   position: absolute;
   margin: auto;

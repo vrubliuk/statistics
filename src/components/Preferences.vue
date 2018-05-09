@@ -1,63 +1,52 @@
 <template>
   <div class="Preferences">
-      <table class="Preferences__table">
-          <tr>
-            <td class="Preferences__title" colspan="2" >Counter</td>
-          </tr>
-          <tr>
-            <td class="Preferences__section">Reset number:</td>
-            <td class="Preferences__section Preferences__section_right"><button class="Preferences__button" @click="resetCounter"><i class="fa fa-refresh" aria-hidden="true"></i></button></td>
-          </tr>
-           <tr>
-            <td class="Preferences__section" >Adjust number:</td>
-            <td class="Preferences__section Preferences__section_right"><input class="Preferences__input" v-model.trim.number="currentCounterValue" type="text" maxlength='3'/></td>
-          </tr>
-          <tr>
-            <td class="Preferences__title" colspan="2">Wallpaper</td>
-          </tr>
-          <tr>
-            <td class="Preferences__section">Previous image:</td>
-            <td class="Preferences__section Preferences__section_right"><button class="Preferences__button" @click="changeWallpaperPrevious" ><i class="fa fa-arrow-left" aria-hidden="true"></i></button></td>
-          </tr>
-           <tr>
-            <td class="Preferences__section">Next image:</td>
-            <td class="Preferences__section Preferences__section_right"><button class="Preferences__button" @click="changeWallpaperNext" ><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-          </tr>
-           <tr>
-            <td class="Preferences__section">Random image:</td>
-            <td class="Preferences__section Preferences__section_right"><button class="Preferences__button" @click="changeWallpaperRandom" ><i class="fa fa-random" aria-hidden="true"></i></button></td>
-          </tr>
+    <table class="Preferences__table">
+      <tr>
+        <td class="Preferences__nav">
+          <div class="Preferences__tab" :class="{'Preferences__tab-active': tab === currentTab}" v-for="tab in tabs" :key="tab">
+            <div @click="switchTab(tab)">{{tab}}</div>
+          </div>
+
+        </td>
+        <td class="Preferences__content">
+          <component :is="`Preferences__${currentTab}`"></component>
+        </td>
+      </tr>
+  
     </table>
 
-    </div>
+  </div>
 </template>
 
+
 <script>
-import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
+import Preferences__Counter from './Preferences__Counter'
+import Preferences__Wallpaper from './Preferences__Wallpaper'
+import Preferences__User from './Preferences__User'
+import Preferences__Recipients from './Preferences__Recipients'
+
 export default {
-  computed: {
-    ...mapGetters(["counterValue"]),
-    currentCounterValue: {
-      get() {
-        return this.counterValue;
-      },
-      set(value) {
-        this.setCounter(value);
-      }
-    }
+  data() {
+    return {
+      currentTab: "Counter",
+      tabs: ["Counter", "Wallpaper", "User", "Recipients"]
+    };
   },
   methods: {
-    ...mapMutations([
-      "resetCounter",
-      "setCounter",
-      "changeWallpaperPrevious",
-      "changeWallpaperNext",
-      "changeWallpaperRandom"
-    ])
+    switchTab(tab) {
+      this.currentTab = tab;
+    }
+  },
+  components: {
+    Preferences__Counter,
+    Preferences__Wallpaper,
+    Preferences__User,
+    Preferences__Recipients
   }
 };
 </script>
+
+
 
 <style>
 .Preferences {
@@ -74,61 +63,49 @@ export default {
   background-color: black;
   color: white;
 }
-
 .Preferences__table {
   width: 100%;
   height: 100%;
   border-collapse: collapse;
 }
 
-.Preferences__title {
-  font-size: 4vw;
-  text-align: center;
-  text-transform: uppercase;
+.Preferences__nav {
+  width: 20%;
+  vertical-align: top;
+  padding: 1vw 0.5vw;
 }
 
-.Preferences__section {
-  width: 50%;
-  font-size: 3vw;
-  padding: 0.5vw;
+.Preferences__tab {
+  border-left: 0.5vw solid black;
+  border-right: 0.5vw solid black;
+  color: white;
 }
 
-.Preferences__section_right {
-  text-align: right;
-}
-
-.Preferences__button {
-  border: none;
-  font-size: 3vw;
-  background: white;
-  color: black;
-  width: 15vw;
+.Preferences__tab > div {
   cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 0 8px 0 white;
+  padding: 0 0.5vw;
+  font-size: 2vw;
 }
 
-.Preferences__button:hover {
-  background: red;
-  box-shadow: 0 0 8px 0 red;
-}
-
-.Preferences__input {
-  font-weight: bold;
-  border: none;
-  font-size: 3vw;
+.Preferences__tab > div:hover {
   background: white;
   color: black;
-  width: 15vw;
-  text-align: center;
-  box-shadow: 0 0 8px 0 white;
 }
 
-.Preferences__input:hover,
-.Preferences__input:focus {
+.Preferences__tab-active {
+  border-left: 0.5vw solid red;
   color: red;
-  box-shadow: 0 0 8px 0 red;
 }
+.Preferences__tab-active > div:hover {
+  color: red;
+}
+
+.Preferences__content {
+  background: darkgray;
+}
+
 </style>
+
+
 
 

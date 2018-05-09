@@ -4,14 +4,20 @@ const state = {
       name: 'counter',
       icon: 'fa fa-star'
     },
-    {
-      name: 'user',
-      icon: 'fa fa-user'
-    },
+    // {
+    //   name: 'user',
+    //   icon: 'fa fa-user'
+    // },
     {
       name: 'send',
       icon: 'fa fa-paper-plane'
     },
+    // {
+    //   name: 'send',
+    //   icon: 'fa fa-envelope'
+    // },
+
+   
     {
       name: 'preferences',
       icon: 'fa fa-cog'

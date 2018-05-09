@@ -15,7 +15,7 @@ import { mapMutations } from "vuex";
 import Preloader from "./components/Preloader";
 import Navigation from "./components/Navigation";
 import Counter from "./components/Counter";
-import User from "./components/User";
+
 import Send from "./components/Send";
 import Preferences from "./components/Preferences";
 
@@ -38,7 +38,7 @@ export default {
     Preloader,
     Navigation,
     Counter,
-    User,
+    
     Send,
     Preferences
   },
@@ -55,10 +55,16 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+    font-family: localImpact;
+    src: url('./assets/fonts/impact.ttf');
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: impact;
+  font-family: localImpact;
 }
 
 * {
