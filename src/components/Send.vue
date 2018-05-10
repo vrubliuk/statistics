@@ -130,6 +130,8 @@ export default {
   display: inline-block;
   width: 5vw;
   height: 3vw;
+ 
+
 }
 
 .Send__checkbox input {
@@ -144,17 +146,20 @@ export default {
   right: 0;
   bottom: 0;
   background-color: white;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .Send__checkbox__slider:before {
   position: absolute;
   content: "";
+
   height: 2.4vw;
   width: 2.4vw;
   left: 0.3vw;
   top: 0.3vw;
+
+
+
   background-color: black;
   transition: 0.4s;
 }
@@ -168,7 +173,8 @@ export default {
 }
 
 .Send__checkbox__input:checked + .Send__checkbox__slider:before {
-  transform: translateX(2vw);
+  /* transform: translateX(2vw); doesn't work properly in IE */
+   transform: translateX(83%);
 }
 
 .Send__table__footer {
