@@ -4,7 +4,7 @@
       
       <tr class="Send__table__main">
         <td>Released:</td>
-        <td>{{counterValue}}</td>
+        <td class="Send__counterValue">{{counterValue}}</td>
       </tr>
       <tr  class="Send__table__main" >
         <td>Shared inbox:</td>
@@ -124,6 +124,9 @@ export default {
   text-align: right;
 }
 
+.Send__counterValue {
+  color: red;
+}
 
 .Send__checkbox {
   position: relative;

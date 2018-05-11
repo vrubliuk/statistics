@@ -32,13 +32,13 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["hidePreloader"])
+    ...mapMutations(["hidePreloader", "increaseCounter", "decreaseCounter"])
   },
   components: {
     Preloader,
     Navigation,
     Counter,
-    
+
     Send,
     Preferences
   },
@@ -50,15 +50,23 @@ export default {
         });
       }, 1000);
     });
+    window.addEventListener("keydown", event => {
+      if (this.currentTab !== "counter") return
+      const key = event.key;
+      if (key === "ArrowUp") {
+        this.increaseCounter();
+      } else if (key === "ArrowDown") {
+        this.decreaseCounter();
+      }
+    });
   }
 };
 </script>
 
 <style>
-
 @font-face {
-    font-family: localImpact;
-    src: url('./assets/fonts/impact.ttf');
+  font-family: localImpact;
+  src: url("./assets/fonts/impact.ttf");
 }
 
 body {

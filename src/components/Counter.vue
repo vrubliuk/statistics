@@ -44,19 +44,9 @@ export default {
           alert("You've reached the limit!");
         }
       }
-    }
-  },
-  mounted() {
-    $(document).keydown(key => {
-      if (this.currentTab === "counter") {
-        if (parseInt(key.which, 10) === 38) {
-          this.increaseCounter();
-        } else if (parseInt(key.which, 10) === 40) {
-          this.decreaseCounter();
-        }
-      }
-    });
+    },
   }
+ 
 };
 </script>
 

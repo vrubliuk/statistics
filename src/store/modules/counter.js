@@ -1,3 +1,5 @@
+import { isNumber } from "util";
+
 const state = {
   counterValue: 0,
   counterMaximized: false,
@@ -40,8 +42,10 @@ const mutations = {
   setCounter: (state, payload)=> {
     if (payload === '') {
       state.counterValue = 0
-    } else {
+    } else if( !isNaN(parseFloat(payload)) && isFinite(payload) && payload >= 0){
       state.counterValue = payload
+    } else {
+      alert('sd')
     }
   },
 

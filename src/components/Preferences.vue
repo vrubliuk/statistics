@@ -20,10 +20,10 @@
 
 
 <script>
-import Preferences__Counter from './Preferences__Counter'
-import Preferences__Wallpaper from './Preferences__Wallpaper'
-import Preferences__User from './Preferences__User'
-import Preferences__Recipients from './Preferences__Recipients'
+import Preferences__Counter from "./Preferences__Counter";
+import Preferences__Wallpaper from "./Preferences__Wallpaper";
+import Preferences__User from "./Preferences__User";
+import Preferences__Recipients from "./Preferences__Recipients";
 
 export default {
   data() {
@@ -59,7 +59,6 @@ export default {
   width: 70vw;
   height: 35vw;
   opacity: 0.6;
-  box-shadow: 0 0 8px 0 black;
   background-color: black;
   color: white;
 }
@@ -73,12 +72,29 @@ export default {
   width: 20%;
   vertical-align: top;
   padding: 1vw 0.5vw;
+  background: white;
+  box-shadow: 0 0 8px 0 white;
+  position: relative;
+}
+
+
+.Preferences__nav:after {
+  background: white;
+  display: block;
+  content: "";
+  font-size: 0;
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
 }
 
 .Preferences__tab {
-  border-left: 0.5vw solid black;
-  border-right: 0.5vw solid black;
-  color: white;
+  border-left: 0.5vw solid white;
+  border-right: 0.5vw solid white;
+  color: black;
 }
 
 .Preferences__tab > div {
@@ -88,8 +104,8 @@ export default {
 }
 
 .Preferences__tab > div:hover {
-  background: white;
-  color: black;
+  background: black;
+  color: white;
 }
 
 .Preferences__tab-active {
@@ -101,9 +117,26 @@ export default {
 }
 
 .Preferences__content {
-  background: darkgray;
+
+  vertical-align: top;
+  padding: 1vw 0.5vw;
+  position: relative;
+  box-shadow: 0 0 8px 0 black;
 }
 
+.Preferences__content:before {
+
+   background: black;
+  display: block;
+  content: "";
+  font-size: 0;
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
 </style>
 
 
