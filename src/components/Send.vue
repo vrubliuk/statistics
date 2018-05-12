@@ -98,7 +98,7 @@ export default {
   width: 70vw;
   height: 35vw;
   opacity: 0.6;
-  box-shadow: 0 0 8px 0 black;
+  /* box-shadow: 0 0 8px 0 black; */
   background-color: black;
   color: white;
   font-size: 3vw;
@@ -133,7 +133,7 @@ export default {
   display: inline-block;
   width: 5vw;
   height: 3vw;
- 
+
 
 }
 
@@ -149,6 +149,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: white;
+  /* box-shadow: 0 0 8px 0 white; */
   transition: 0.4s;
 }
 
@@ -169,6 +170,7 @@ export default {
 
 .Send__checkbox__input:checked + .Send__checkbox__slider {
   background-color: red;
+  /* box-shadow: 0 0 8px 0 red; */
 }
 
 .Send__checkbox__input:focus + .Send__checkbox__slider {

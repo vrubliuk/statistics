@@ -73,12 +73,12 @@ export default {
   vertical-align: top;
   padding: 1vw 0.5vw;
   background: white;
-  box-shadow: 0 0 8px 0 white;
+  /* box-shadow: 0 0 8px 0 white; */
   position: relative;
 }
 
 
-.Preferences__nav:after {
+/* .Preferences__nav:after {
   background: white;
   display: block;
   content: "";
@@ -89,7 +89,7 @@ export default {
   right: 0;
   top: 0;
   z-index: 10;
-}
+} */
 
 .Preferences__tab {
   border-left: 0.5vw solid white;
@@ -121,10 +121,10 @@ export default {
   vertical-align: top;
   padding: 1vw 0.5vw;
   position: relative;
-  box-shadow: 0 0 8px 0 black;
+  /* box-shadow: 0 0 8px 0 black; */
 }
 
-.Preferences__content:before {
+/* .Preferences__content:before {
 
    background: black;
   display: block;
@@ -136,7 +136,7 @@ export default {
   left: 0;
   top: 0;
   z-index: 10;
-}
+} */
 </style>
 
 

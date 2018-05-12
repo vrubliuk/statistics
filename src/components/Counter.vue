@@ -63,7 +63,7 @@ export default {
   line-height: 35vw;
   font-size: 30vw;
   opacity: 0.6;
-  box-shadow: 0 0 8px 0 black;
+  /* box-shadow: 0 0 8px 0 black; */
   text-align: center;
   background-color: black;
   color: white;

@@ -40,13 +40,15 @@ const mutations = {
     state.counterValue = 0
   },
   setCounter: (state, payload)=> {
-    if (payload === '') {
-      state.counterValue = 0
-    } else if( !isNaN(parseFloat(payload)) && isFinite(payload) && payload >= 0){
-      state.counterValue = payload
-    } else {
-      alert('sd')
-    }
+    // if (payload === '') {
+    //   state.counterValue = 0
+    // } 
+    // else if( !isNaN(parseFloat(payload)) && isFinite(payload) && payload >= 0){
+    //   state.counterValue = payload
+    // } 
+    state.counterValue = payload
+
+
   },
 
   runAnimation: state => {

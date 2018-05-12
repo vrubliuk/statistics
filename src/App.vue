@@ -51,11 +51,10 @@ export default {
       }, 1000);
     });
     window.addEventListener("keydown", event => {
-      if (this.currentTab !== "counter") return
-      const key = event.key;
-      if (key === "ArrowUp") {
+      if (this.currentTab !== "counter") return;
+      if (event.keyCode === 38) {
         this.increaseCounter();
-      } else if (key === "ArrowDown") {
+      } else if (event.keyCode === 40) {
         this.decreaseCounter();
       }
     });
@@ -72,14 +71,20 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  font-family: localImpact;
+  /* font-family: localImpact; */
 }
 
 * {
   box-sizing: border-box;
   user-select: none;
   outline: none;
+  font-family: localImpact;
 }
+
+ /* remove IE's “clear field” X button */
+ input::-ms-clear {
+   display: none;
+ }
 
 #App {
   height: 100vh;
