@@ -1,6 +1,6 @@
 const state = {
-  wallpaperQuantity: 15,
-  wallpaperNumber: 12
+  wallpaperQuantity: 16,
+  wallpaperNumber: 8
 }
 
 const getters = {
@@ -10,23 +10,27 @@ const getters = {
 }
 
 const mutations = {
-  changeWallpaperPrevious: state => {
-    if(state.wallpaperNumber === 1) {
-      state.wallpaperNumber = state.wallpaperQuantity
-    } else {
-      state.wallpaperNumber--
-    }
+
+  setWallpaper: (state, payload)  => {
+    state.wallpaperNumber = payload
   },
-  changeWallpaperNext: state => {
-    if(state.wallpaperNumber === state.wallpaperQuantity) {
-      state.wallpaperNumber = 1
-    } else {
-      state.wallpaperNumber++
-    }
-  },
-  changeWallpaperRandom: state => {
-    state.wallpaperNumber = Math.floor((Math.random() * state.wallpaperQuantity) + 1);
-  },
+  // changeWallpaperPrevious: state => {
+  //   if(state.wallpaperNumber === 1) {
+  //     state.wallpaperNumber = state.wallpaperQuantity
+  //   } else {
+  //     state.wallpaperNumber--
+  //   }
+  // },
+  // changeWallpaperNext: state => {
+  //   if(state.wallpaperNumber === state.wallpaperQuantity) {
+  //     state.wallpaperNumber = 1
+  //   } else {
+  //     state.wallpaperNumber++
+  //   }
+  // },
+  // changeWallpaperRandom: state => {
+  //   state.wallpaperNumber = Math.floor((Math.random() * state.wallpaperQuantity) + 1);
+  // },
 }
 
 export default {

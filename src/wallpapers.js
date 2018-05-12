@@ -13,6 +13,7 @@ import img12 from './assets/wallpapers/12.jpg'
 import img13 from './assets/wallpapers/13.jpg'
 import img14 from './assets/wallpapers/14.jpg'
 import img15 from './assets/wallpapers/15.jpg'
+import img16 from './assets/wallpapers/16.jpg'
 
 export const wallpapers = {
     1: img1,
@@ -29,5 +30,6 @@ export const wallpapers = {
     12: img12,
     13: img13,
     14: img14,
-    15: img15
+    15: img15,
+    16: img16
 }

@@ -1,6 +1,6 @@
 <template>
-  <div >
-     <table >
+  <div class="container" >
+     <!-- <table >
           <tr>
             <td >Previous image:</td>
             <td ><button class="Preferences__button" @click="changeWallpaperPrevious" ><i class="fa fa-arrow-left" aria-hidden="true"></i></button></td>
@@ -13,32 +13,104 @@
             <td>Random image:</td>
             <td ><button class="Preferences__button" @click="changeWallpaperRandom" ><i class="fa fa-random" aria-hidden="true"></i></button></td>
           </tr>
-    </table>
+    </table> -->
+
+  <div class="imagesContainer">
+
+
+  
+    <div 
+      class="image" 
+      :class="{'imageContainer-current': currentWallpaperNumber == number }"
+      v-for="(wallpaper, number) in wallpapers" 
+      :key="wallpaper" 
+      :style="{ 'background-image': `url(${wallpaper})` }"
+      @click="setWallpaper(number)"        
+      >
+    </div>
+
+  </div>
   </div>
 </template>
 
 
 <script>
+import { wallpapers } from "../wallpapers";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
 export default {
+  data() {
+    return {
+      wallpapers
+    };
+  },
+  computed: {
+    ...mapGetters(["currentWallpaperNumber"])
+  },
   methods: {
-    ...mapMutations([
-      "changeWallpaperPrevious",
-      "changeWallpaperNext",
-      "changeWallpaperRandom"
-    ])
+    ...mapMutations(["setWallpaper"])
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
+
+
+.container {
+  // position: absolute;
+  // width: 56vw;
+  // height: 35vw;
+  // border: 1px solid red;
+
+  height: 100%;
+  width: 100%;
+  padding: 1vw 1vw;
+  font-size: 0;
+}
+.imagesContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 33vw;
+  width: 54vw;
+}
+.image {
+  display: inline-block;
+  // height: 18%;
+  // width: 21%;
+  // margin: 2%;
+   height: 6.25vw;
+   width: 11.5vw;
+  margin: 1vw;
+
+  box-shadow: 0 0 8px white;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:hover {
+    box-shadow: 0 0 16px white;
+  }
+}
+
+.imageContainer-current {
+  box-shadow: 0 0 8px red;
+  &:hover {
+    box-shadow: 0 0 16px red;
+  }
+}
+
 table {
   width: 100%;
   // height: 100%;
   border-collapse: collapse;
-  // border: 1px solid blue;
+  border: 1px solid blue;
 }
 td {
   // border: 1px solid red;
@@ -54,7 +126,7 @@ button {
   border: none;
   font-size: 1.5vw;
   line-height: 1.8vw;
-  height: 1.8vw; 
+  height: 1.8vw;
   background: white;
   color: black;
   width: 10vw;

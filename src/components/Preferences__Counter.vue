@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="container" >
      <table >
 
           <tr>
@@ -83,6 +83,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  padding: 1vw 0.5vw;
+}
+
+
 table {
   width: 100%;
   // height: 100%;

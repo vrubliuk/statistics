@@ -1,7 +1,6 @@
 https://vrubliuk.github.io/statistics
 
 
-preferences wallpapers alternative design
 add fadein/out when changing wallpapers
 preferences user
 preferences recipients

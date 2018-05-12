@@ -94,5 +94,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  transition: background 0.5s linear;
 }
 </style>

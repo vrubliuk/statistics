@@ -69,7 +69,7 @@ export default {
 }
 
 .Preferences__nav {
-  width: 20%;
+  width: 14vw;
   vertical-align: top;
   padding: 1vw 0.5vw;
   background: white;
@@ -117,9 +117,9 @@ export default {
 }
 
 .Preferences__content {
-
+  width: 56vw;
   vertical-align: top;
-  padding: 1vw 0.5vw;
+  /* padding: 1vw 0.5vw; */
   position: relative;
   /* box-shadow: 0 0 8px 0 black; */
 }
