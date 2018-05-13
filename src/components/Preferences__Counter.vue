@@ -44,15 +44,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["counterValue"]),
-    currentCounterValue: {
-      get() {
-        return this.counterValue;
-      },
-      set(value) {
-        this.setCounter(value);
-      }
-    }
+    ...mapGetters(["counterValue"])
+    // currentCounterValue: {
+    //   get() {
+    //     return this.counterValue;
+    //   },
+    //   set(value) {
+    //     this.setCounter(value);
+    //   }
+    // }
   },
   methods: {
     ...mapMutations(["resetCounter", "setCounter"]),
@@ -106,6 +106,7 @@ td:last-child {
 }
 .counterValue {
   color: red;
+  text-shadow: 0 0 8px red;
 }
 
 // button {

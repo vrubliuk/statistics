@@ -15,8 +15,7 @@ import { mapMutations } from "vuex";
 import Preloader from "./components/Preloader";
 import Navigation from "./components/Navigation";
 import Counter from "./components/Counter";
-
-import Send from "./components/Send";
+import Email from "./components/Email";
 import Preferences from "./components/Preferences";
 
 export default {
@@ -38,8 +37,7 @@ export default {
     Preloader,
     Navigation,
     Counter,
-
-    Send,
+    Email,
     Preferences
   },
   mounted() {

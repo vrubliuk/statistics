@@ -1,7 +1,7 @@
 <template>
   <div class="Send">
     <table class="Send__table">
-      
+    
       <tr class="Send__table__main">
         <td>Released:</td>
         <td class="Send__counterValue">{{counterValue}}</td>
@@ -10,7 +10,7 @@
         <td>Shared inbox:</td>
         <td>
           <label class="Send__checkbox">
-            <input class="Send__checkbox__input" type="checkbox">
+            <input class="Send__checkbox__input" type="checkbox" value="Shared inbox" v-model="additionalActivities">
             <span class="Send__checkbox__slider"></span>
           </label>
         </td>
@@ -19,7 +19,7 @@
         <td>Audit:</td>
         <td>
           <label class="Send__checkbox">
-            <input class="Send__checkbox__input" type="checkbox">
+            <input class="Send__checkbox__input" type="checkbox" value="Audit" v-model="additionalActivities"> 
             <span class="Send__checkbox__slider"></span>
           </label>
         </td>
@@ -28,7 +28,7 @@
         <td>Report:</td>
         <td>
           <label class="Send__checkbox">
-            <input class="Send__checkbox__input" type="checkbox">
+            <input class="Send__checkbox__input" type="checkbox" value="Report" v-model="additionalActivities">
             <span class="Send__checkbox__slider"></span>
           </label>
         </td>
@@ -37,48 +37,59 @@
         <td>Short-term hold:</td>
         <td>
           <label class="Send__checkbox">
-            <input class="Send__checkbox__input" type="checkbox">
+            <input class="Send__checkbox__input" type="checkbox" value="Short-term hold" v-model="additionalActivities">
             <span class="Send__checkbox__slider"></span>
           </label>
         </td>
       </tr>
-
-      
-     
       <tr class="Send__table__footer">
         <td colspan="2">
-          <button class="Send__button">Create email</button>
+          <button class="Send__button" @click="handleClick">Create email</button>
         </td>
       </tr> 
-      
-
-
-     
-    
-
     </table>
-
   </div>
 </template>
 
 
 <script>
 import { mapGetters } from "vuex";
-
 export default {
   data() {
     return {
-      
+      additionalActivities: []
     };
   },
   computed: {
-    ...mapGetters([
-      'counterValue'
-    ])
+    ...mapGetters(["counterValue"]),
+    currentDate() {
+      const date = new Date();
+      const month = ("0" + (date.getMonth() + 1)).slice(-2);
+      const day = ("0" + date.getDate()).slice(-2);
+      const year = date.getFullYear();
+      return `${month}/${day}/${year}`;
+    },
+    recipients() {
+      return "vrubliuk@plslogistics.com; yzborovska@plslogistics.com";
+    },
+    subject() {
+      return `statistics ${this.currentDate}`;
+    },
+    body() {
+      return `statistics ${this.currentDate}`;
+    },
+    signature() {
+      return "Signature";
+    }
   },
   methods: {
-    switchTab(tab) {
-      this.currentTab = tab;
+    createEmail() {
+      location.href = `mailto:${this.recipients}?subject=${this.subject}&body=${
+        this.body
+      }${this.signature}`;
+    },
+    handleClick() {
+      this.createEmail();
     }
   },
   components: {}
@@ -110,8 +121,7 @@ export default {
   border-collapse: collapse;
 }
 
-.Send__table__main{
-
+.Send__table__main {
   height: 3vw;
 }
 .Send__table td {
@@ -126,6 +136,7 @@ export default {
 
 .Send__counterValue {
   color: red;
+  text-shadow: 0 0 8px red;
 }
 
 .Send__checkbox {
@@ -133,8 +144,6 @@ export default {
   display: inline-block;
   width: 5vw;
   height: 3vw;
-
-
 }
 
 .Send__checkbox input {
@@ -149,7 +158,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: white;
-  /* box-shadow: 0 0 8px 0 white; */
+  box-shadow: 0 0 8px 0 white;
   transition: 0.4s;
 }
 
@@ -162,15 +171,13 @@ export default {
   left: 0.3vw;
   top: 0.3vw;
 
-
-
   background-color: black;
   transition: 0.4s;
 }
 
 .Send__checkbox__input:checked + .Send__checkbox__slider {
   background-color: red;
-  /* box-shadow: 0 0 8px 0 red; */
+  box-shadow: 0 0 8px 0 red;
 }
 
 .Send__checkbox__input:focus + .Send__checkbox__slider {
@@ -179,18 +186,15 @@ export default {
 
 .Send__checkbox__input:checked + .Send__checkbox__slider:before {
   /* transform: translateX(2vw); doesn't work properly in IE */
-   transform: translateX(83%);
+  transform: translateX(83%);
 }
 
 .Send__table__footer {
   text-align: center;
-
 }
 .Send__table__footer td {
   vertical-align: bottom;
-
 }
-
 
 .Send__button {
   /* margin: 1vw; */

@@ -1,5 +1,5 @@
 const state = {
-  tab: 'preferences',
+  tab: 'email',
   tabData: [{
       name: 'counter',
       icon: 'fa fa-star'
@@ -9,7 +9,7 @@ const state = {
     //   icon: 'fa fa-user'
     // },
     {
-      name: 'send',
+      name: 'email',
       icon: 'fa fa-paper-plane'
     },
     // {

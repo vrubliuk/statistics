@@ -22,14 +22,15 @@
 <script>
 import Preferences__Counter from "./Preferences__Counter";
 import Preferences__Wallpaper from "./Preferences__Wallpaper";
-import Preferences__User from "./Preferences__User";
+
 import Preferences__Recipients from "./Preferences__Recipients";
+import Preferences__Signature from "./Preferences__Signature";
 
 export default {
   data() {
     return {
-      currentTab: "Counter",
-      tabs: ["Counter", "Wallpaper", "User", "Recipients"]
+      currentTab: "Signature",
+      tabs: ["Counter", "Wallpaper", "Recipients", "Signature"]
     };
   },
   methods: {
@@ -40,8 +41,8 @@ export default {
   components: {
     Preferences__Counter,
     Preferences__Wallpaper,
-    Preferences__User,
-    Preferences__Recipients
+    Preferences__Recipients,
+    Preferences__Signature
   }
 };
 </script>
@@ -76,7 +77,6 @@ export default {
   /* box-shadow: 0 0 8px 0 white; */
   position: relative;
 }
-
 
 /* .Preferences__nav:after {
   background: white;
