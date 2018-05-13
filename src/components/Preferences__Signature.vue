@@ -13,7 +13,7 @@
         <td>You are the Team Lead:</td>
         <td>
           <label class="checkbox">
-            <input class="checkbox__input" type="checkbox">
+            <input class="checkbox__input" type="checkbox" v-model="teamLead">
             <span class="checkbox__slider"></span>
           </label>
         </td>
@@ -22,24 +22,24 @@
         <td>Signature:</td>
         <td>
           <label class="radio">Default
-            <input type="radio" checked="checked" name="radio">
+            <input type="radio" name="radio" value="default" v-model="type">
             <span class="checkmark"></span>
           </label>
           <label class="radio">Custom
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" value="custom" v-model="type">
             <span class="checkmark"></span>
           </label>
           <label class="radio">None
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" value="none" v-model="type">
             <span class="checkmark"></span>
           </label>
         </td>
       </tr>
 
-      <tr>
+      <tr v-if="signatureType === 'default' || signatureType === 'custom' ">
 
         <td class="textareaContainer" colspan="2">
-          <textarea rows="5"></textarea>
+          <textarea rows="5" placeholder="write your signature here" :disabled="signatureType === 'default'" v-model="text" ></textarea>
         </td>
         
       </tr>
@@ -54,8 +54,13 @@
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 export default {
+  data() {
+    return {
+      
+    }
+  },
   computed: {
-    ...mapGetters(["userName", 'userSurname']),
+    ...mapGetters(["userName", 'userSurname', 'userTeamLead', 'signatureType', 'signatureText']),
     name: {
       get() {
         return this.userName;
@@ -72,9 +77,35 @@ export default {
         this.setUserSurname(value);
       }
     },
+    teamLead: {
+      get() {
+        return this.userTeamLead;
+      },
+      set(value) {
+        this.setUserTeamLead(value);
+      }
+    },
+    type: {
+      get() {
+        return this.signatureType;
+      },
+      set(value) {
+        this.setSignatureType(value);
+      }
+    },
+    text: {
+      get() {
+        return this.signatureText;
+      },
+      set(value) {
+        this.setSignatureCustom(value);
+      }
+
+    }
+
   },
   methods: {
-    ...mapMutations(["setUserName", "setUserSurname"])
+    ...mapMutations(["setUserName", "setUserSurname", 'setUserTeamLead', 'setSignatureType', 'setSignatureCustom'])
   }
 };
 </script>

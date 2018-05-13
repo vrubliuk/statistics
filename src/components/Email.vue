@@ -61,7 +61,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["counterValue"]),
+    ...mapGetters(["counterValue", "recipientsArray", "signatureText"]),
     currentDate() {
       const date = new Date();
       const month = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -76,10 +76,17 @@ export default {
       return `statistics ${this.currentDate}`;
     },
     body() {
-      return `statistics ${this.currentDate}`;
+      const released = `Released: ${this.counterValue}`;
+      const activities = this.additionalActivities.join("%0A");
+      return `${released}${
+        this.additionalActivities.length ? "%0A" : ""
+      }${activities}`;
     },
     signature() {
-      return "Signature";
+      const correctedSignature = this.signatureText.replace(/\n/g, "%0A");
+      return `${
+        correctedSignature.length ? "%0A%0A" : ""
+      }${correctedSignature}`;
     }
   },
   methods: {

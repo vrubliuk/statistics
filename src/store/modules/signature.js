@@ -1,23 +1,33 @@
 const state = {
   userName: 'John',
   userSurname: 'Doe',
-  userTeamLead: false,
+  userTeamLead: true,
   signatureType: 'default',
   signatureCustom: ''
 }
 
-
 const getters = {
- 
-
-
- userName: state => {
-  return state.userName
-},
-userSurname: state => {
-  return state.userSurname
-}
-  
+  userName: state => {
+    return state.userName
+  },
+  userSurname: state => {
+    return state.userSurname
+  },
+  userTeamLead: state => {
+    return state.userTeamLead
+  },
+  signatureType: state => {
+    return state.signatureType
+  },
+  signatureText: state => {
+    if(state.signatureType === 'default') {
+      return `${state.userName} ${state.userSurname}\nFS Billing Team${state.userTeamLead ? ' Lead' : ''}\nPLS Logistics Services`
+    } else if (state.signatureType === 'custom') {
+      return state.signatureCustom
+    } else {
+      return ''
+    }
+  }
 }
 
 const mutations = {
@@ -26,7 +36,17 @@ const mutations = {
   },
   setUserSurname: (state, payload) => {
     state.userSurname = payload
+  },
+  setUserTeamLead: (state, payload) => {
+    state.userTeamLead = payload
+  },
+  setSignatureType: (state, payload) => {
+    state.signatureType = payload
+  },
+  setSignatureCustom: (state, payload) => {
+    state.signatureCustom = payload
   }
+  
 }
 
 export default {

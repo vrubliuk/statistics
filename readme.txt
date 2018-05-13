@@ -1,7 +1,6 @@
 https://vrubliuk.github.io/statistics
 
 
-preferences user
 preferences recipients
 save data in local storage
 creating email

@@ -1,12 +1,12 @@
 const state = {
- emailReceivers: [],
+ recipients: [],
 
 }
 
 
 const getters = {
-  emailDate: () => {
-    
+  recipientsArray: state => {
+    return state.recipients
   }
   
 }
