@@ -9,6 +9,7 @@
 <script>
 import "font-awesome/css/font-awesome.min.css";
 import $ from "jquery";
+import { settingsDefault } from "./settingsDefault";
 import { wallpapers } from "./wallpapers";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
@@ -24,12 +25,39 @@ export default {
   },
   computed: {
     ...mapGetters(["showPreloader", "currentWallpaperNumber", "currentTab"]),
+    settings: {
+      get() {
+        return {
+          counterValue: 0,
+          counterMaximized: false,
+          recipients: ["kpolishko@plslogistics.com"],
+          userName: "John",
+          userSurname: "Doe",
+          userTeamLead: false,
+          signatureType: "default",
+          signatureCustom: "",
+          wallpaperNumber: this.currentWallpaperNumber
+        };
+      },
+      set(value) {}
+    },
     wallpaper() {
       return {
         "background-image": `url(${wallpapers[this.currentWallpaperNumber]})`
       };
     }
   },
+  watch: {
+    settings() {
+      if (typeof Storage !== "undefined") {
+        localStorage.setItem(
+          "settingsLocal",
+          JSON.stringify(this.settings)
+        );
+      }
+    }
+  },
+
   methods: {
     ...mapMutations(["hidePreloader", "increaseCounter", "decreaseCounter"])
   },
@@ -40,6 +68,17 @@ export default {
     Email,
     Preferences
   },
+
+  beforeMount() {
+    if (
+      typeof Storage !== "undefined" &&
+      localStorage.getItem("settingsLocal")
+    ) {
+      alert('yes')
+      // this.settings = JSON.parse(localStorage.getItem("settingsLocal"));
+    }
+  },
+
   mounted() {
     window.addEventListener("load", () => {
       setTimeout(() => {
@@ -69,7 +108,6 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  /* font-family: localImpact; */
 }
 
 * {
@@ -79,10 +117,10 @@ body {
   font-family: localImpact;
 }
 
- /* remove IE's “clear field” X button */
- input::-ms-clear {
-   display: none;
- }
+/* remove IE's “clear field” X button */
+input::-ms-clear {
+  display: none;
+}
 
 #App {
   height: 100vh;

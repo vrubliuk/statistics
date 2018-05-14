@@ -70,7 +70,7 @@ export default {
       return `${month}/${day}/${year}`;
     },
     recipients() {
-      return "vrubliuk@plslogistics.com; yzborovska@plslogistics.com";
+      return this.recipientsArray.join("; ");
     },
     subject() {
       return `statistics ${this.currentDate}`;

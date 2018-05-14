@@ -101,6 +101,8 @@ export default {
   cursor: pointer;
   padding: 0 0.5vw;
   font-size: 2vw;
+  height: 2.5vw;
+  line-height: 2.5vw;
 }
 
 .Preferences__tab > div:hover {
@@ -118,6 +120,7 @@ export default {
 
 .Preferences__content {
   width: 56vw;
+  padding: 0;
   vertical-align: top;
   /* padding: 1vw 0.5vw; */
   position: relative;

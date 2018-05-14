@@ -19,7 +19,7 @@
         </td>
       </tr>
        <tr>
-        <td>Signature:</td>
+        <td>Style:</td>
         <td>
           <label class="radio">Default
             <input type="radio" name="radio" value="default" v-model="type">
@@ -126,6 +126,8 @@ td {
   width: 50%;
   font-size: 2vw;
   padding: 0 1vw;
+  height: 2.5vw;
+  line-height: 2.5vw;
 }
 td:last-child {
   text-align: right;
@@ -200,6 +202,7 @@ input {
   display: inline-block;
   position: relative;
   padding-left: 2.2vw;
+  margin-bottom: -0.3vw;
   cursor: pointer;
   font-size: 1.4vw;
   user-select: none;
@@ -245,11 +248,6 @@ input {
   border: solid black;
   border-width: 0 0.2vw 0.2vw 0;
   transform: rotate(45deg);
-}
-
-.textareaContainer {
-  text-align: left !important;
-  // padding: 1vw 0;
 }
 
 textarea {

@@ -1,6 +1,6 @@
 const state = {
   wallpaperQuantity: 16,
-  wallpaperNumber: 8
+  wallpaperNumber: 1
 }
 
 const getters = {

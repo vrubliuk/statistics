@@ -44,9 +44,8 @@ export default {
           alert("You've reached the limit!");
         }
       }
-    },
+    }
   }
- 
 };
 </script>
 

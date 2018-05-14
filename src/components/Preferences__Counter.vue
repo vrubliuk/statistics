@@ -45,14 +45,6 @@ export default {
   },
   computed: {
     ...mapGetters(["counterValue"])
-    // currentCounterValue: {
-    //   get() {
-    //     return this.counterValue;
-    //   },
-    //   set(value) {
-    //     this.setCounter(value);
-    //   }
-    // }
   },
   methods: {
     ...mapMutations(["resetCounter", "setCounter"]),
@@ -73,11 +65,6 @@ export default {
         alert("Nothing has been entered :(");
       }
     }
-  },
-  watch: {
-    input() {
-      alert(this.input);
-    }
   }
 };
 </script>
@@ -86,7 +73,6 @@ export default {
 .container {
   padding: 1vw 0.5vw;
 }
-
 
 table {
   width: 100%;
@@ -100,6 +86,8 @@ td {
   font-size: 2vw;
   padding: 0 1vw;
   // color: black;
+  height: 2.5vw;
+  line-height: 2.5vw;
 }
 td:last-child {
   text-align: right;
