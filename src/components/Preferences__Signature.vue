@@ -3,11 +3,11 @@
     <table>
       <tr>
         <td>Your name:</td>
-        <td><input v-model="name" type="text" placeholder="enter here"></td>
+        <td><input v-model="name" type="text" placeholder="Enter here"></td>
       </tr>
       <tr>
         <td>Your surname:</td>
-        <td><input v-model="surname" type="text" placeholder="enter here"></td>
+        <td><input v-model="surname" type="text" placeholder="Enter here"></td>
       </tr>
       <tr>
         <td>You are the Team Lead:</td>
@@ -39,7 +39,7 @@
       <tr v-if="signatureType === 'default' || signatureType === 'custom' ">
 
         <td class="textareaContainer" colspan="2">
-          <textarea rows="5" placeholder="write your signature here" :disabled="signatureType === 'default'" v-model="text" ></textarea>
+          <textarea rows="5" placeholder="Add your signature here" :disabled="signatureType === 'default'" v-model="text" ></textarea>
         </td>
         
       </tr>
@@ -258,5 +258,6 @@ textarea {
   width: 100%;
   font-size: 1.4vw;
   resize: none;
+  padding: 0 0.5vw;
 }
 </style>

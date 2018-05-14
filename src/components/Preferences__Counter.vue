@@ -22,7 +22,7 @@
               <!-- <input v-model="newNumber" type="text" maxlength='3' placeholder="enter here" />
               <div class="button button-save"  @click="handleClick">Save</div> -->
               <div class="buttonContainer">
-                <input :class="{'input-red': saveButtonHovered }" v-model.trim="inputValue" type="text" maxlength='3' placeholder="enter here" />
+                <input :class="{'input-red': saveButtonHovered }" v-model.trim="inputValue" type="text" maxlength='3' placeholder="Enter here" />
                 <div class="button button-save"  @click="handleClick" @mouseover="saveButtonHovered = true" @mouseout="saveButtonHovered = false" >Save</div>
               </div>
             </td>

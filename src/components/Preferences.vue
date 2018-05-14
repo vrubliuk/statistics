@@ -29,7 +29,7 @@ import Preferences__Signature from "./Preferences__Signature";
 export default {
   data() {
     return {
-      currentTab: "Signature",
+      currentTab: "Recipients",
       tabs: ["Counter", "Wallpaper", "Recipients", "Signature"]
     };
   },

@@ -1,7 +1,7 @@
 const state = {
   userName: 'John',
   userSurname: 'Doe',
-  userTeamLead: true,
+  userTeamLead: false,
   signatureType: 'default',
   signatureCustom: ''
 }
@@ -21,7 +21,7 @@ const getters = {
   },
   signatureText: state => {
     if(state.signatureType === 'default') {
-      return `${state.userName} ${state.userSurname}\nFS Billing Team${state.userTeamLead ? ' Lead' : ''}\nPLS Logistics Services`
+      return `${state.userName}${state.userName.length ? ' ' : ''}${state.userSurname}${state.userName.length || state.userSurname.length ? '\n' : ''}FS Billing Team${state.userTeamLead ? ' Lead' : ''}\nPLS Logistics Services`
     } else if (state.signatureType === 'custom') {
       return state.signatureCustom
     } else {
