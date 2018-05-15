@@ -1,6 +1,6 @@
 <template>
   <div id="App" :style="wallpaper" >
-    <!-- <preloader v-if="showPreloader"></preloader> -->
+    <preloader v-if="showPreloader"></preloader>
     <navigation></navigation>
     <component :is="currentTab"></component>
   </div>
@@ -20,26 +20,45 @@ import Email from "./components/Email";
 import Preferences from "./components/Preferences";
 
 export default {
-  data() {
-    return {};
-  },
   computed: {
-    ...mapGetters(["showPreloader", "currentWallpaperNumber", "currentTab"]),
+    ...mapGetters([
+      "showPreloader",
+      "currentTab",
+      "counterValue",
+      "counterMaximized",
+      "currentWallpaperNumber",
+      "recipientsArray",
+      "userName",
+      "userSurname",
+      "userTeamLead",
+      "signatureType",
+      "signatureCustom"
+    ]),
     settings: {
       get() {
         return {
-          counterValue: 0,
-          counterMaximized: false,
-          recipients: ["kpolishko@plslogistics.com"],
-          userName: "John",
-          userSurname: "Doe",
-          userTeamLead: false,
-          signatureType: "default",
-          signatureCustom: "",
-          wallpaperNumber: this.currentWallpaperNumber
+          counterValue: this.counterValue,
+          counterMaximized: this.counterMaximized,
+          wallpaperNumber: this.currentWallpaperNumber,
+          recipients: this.recipientsArray,
+          userName: this.userName,
+          userSurname: this.userSurname,
+          userTeamLead: this.userTeamLead,
+          signatureType: this.signatureType,
+          signatureCustom: this.signatureCustom
         };
       },
-      set(value) {}
+      set(value) {
+        this.setCounter(value.counterValue);
+        this.setCounterSize(value.counterMaximized);
+        this.setWallpaper(value.wallpaperNumber);
+        this.setRecipients(value.recipients);
+        this.setUserName(value.userName);
+        this.setUserSurname(value.userSurname);
+        this.setUserTeamLead(value.userTeamLead);
+        this.setSignatureType(value.signatureType);
+        this.setSignatureCustom(value.signatureCustom);
+      }
     },
     wallpaper() {
       return {
@@ -50,16 +69,26 @@ export default {
   watch: {
     settings() {
       if (typeof Storage !== "undefined") {
-        localStorage.setItem(
-          "settingsLocal",
-          JSON.stringify(this.settings)
-        );
+        localStorage.setItem("settingsLocal", JSON.stringify(this.settings));
       }
     }
   },
 
   methods: {
-    ...mapMutations(["hidePreloader", "increaseCounter", "decreaseCounter"])
+    ...mapMutations([
+      "hidePreloader",
+      "increaseCounter",
+      "decreaseCounter",
+      "setCounter",
+      "setCounterSize",
+      "setWallpaper",
+      "setRecipients",
+      "setUserName",
+      "setUserSurname",
+      "setUserTeamLead",
+      "setSignatureType",
+      "setSignatureCustom"
+    ])
   },
   components: {
     Preloader,
@@ -74,8 +103,9 @@ export default {
       typeof Storage !== "undefined" &&
       localStorage.getItem("settingsLocal")
     ) {
-      alert('yes')
-      // this.settings = JSON.parse(localStorage.getItem("settingsLocal"));
+      this.settings = JSON.parse(localStorage.getItem("settingsLocal"));
+    } else {
+      this.settings = settingsDefault;
     }
   },
 

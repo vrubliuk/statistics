@@ -19,6 +19,10 @@ const getters = {
   signatureType: state => {
     return state.signatureType;
   },
+  signatureCustom: state => {
+    return state.signatureCustom;
+  },
+
   signatureText: state => {
     if (state.signatureType === "default") {
       return `${state.userName}${state.userName.length ? " " : ""}${

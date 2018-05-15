@@ -9,6 +9,9 @@ const getters = {
 };
 
 const mutations = {
+  setRecipients: (state, payload) => {
+    state.recipients = payload
+  },
   addRecipient: (state, payload) => {
     state.recipients.push(payload);
   },

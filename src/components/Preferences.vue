@@ -22,14 +22,13 @@
 <script>
 import Preferences__Counter from "./Preferences__Counter";
 import Preferences__Wallpaper from "./Preferences__Wallpaper";
-
 import Preferences__Recipients from "./Preferences__Recipients";
 import Preferences__Signature from "./Preferences__Signature";
 
 export default {
   data() {
     return {
-      currentTab: "Recipients",
+      currentTab: "Counter",
       tabs: ["Counter", "Wallpaper", "Recipients", "Signature"]
     };
   },

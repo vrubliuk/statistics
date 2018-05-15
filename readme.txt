@@ -1,9 +1,5 @@
 https://vrubliuk.github.io/statistics
 
-
-save data in local storage
-creating email
-
 new wallpapers
 compressed wallpapers
 
