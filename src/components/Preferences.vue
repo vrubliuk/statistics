@@ -6,15 +6,12 @@
           <div class="Preferences__tab" :class="{'Preferences__tab-active': tab === currentTab}" v-for="tab in tabs" :key="tab">
             <div @click="switchTab(tab)">{{tab}}</div>
           </div>
-
         </td>
         <td class="Preferences__content">
           <component :is="`Preferences__${currentTab}`"></component>
         </td>
       </tr>
-  
     </table>
-
   </div>
 </template>
 
@@ -46,8 +43,6 @@ export default {
 };
 </script>
 
-
-
 <style>
 .Preferences {
   position: absolute;
@@ -58,7 +53,7 @@ export default {
   right: 0;
   width: 70vw;
   height: 35vw;
-  opacity: 0.6;
+  opacity: 0.7;
   background-color: black;
   color: white;
 }
@@ -73,22 +68,8 @@ export default {
   vertical-align: top;
   padding: 1vw 0.5vw;
   background: white;
-  /* box-shadow: 0 0 8px 0 white; */
   position: relative;
 }
-
-/* .Preferences__nav:after {
-  background: white;
-  display: block;
-  content: "";
-  font-size: 0;
-  width: 8px;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 10;
-} */
 
 .Preferences__tab {
   border-left: 0.5vw solid white;
@@ -113,6 +94,7 @@ export default {
   border-left: 0.5vw solid red;
   color: red;
 }
+
 .Preferences__tab-active > div:hover {
   color: red;
 }
@@ -121,24 +103,8 @@ export default {
   width: 56vw;
   padding: 0;
   vertical-align: top;
-  /* padding: 1vw 0.5vw; */
   position: relative;
-  /* box-shadow: 0 0 8px 0 black; */
 }
-
-/* .Preferences__content:before {
-
-   background: black;
-  display: block;
-  content: "";
-  font-size: 0;
-  width: 8px;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 10;
-} */
 </style>
 
 

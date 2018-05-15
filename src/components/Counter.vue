@@ -61,8 +61,7 @@ export default {
   height: 35vw;
   line-height: 35vw;
   font-size: 30vw;
-  opacity: 0.6;
-  /* box-shadow: 0 0 8px 0 black; */
+  opacity: 0.7;
   text-align: center;
   background-color: black;
   color: white;

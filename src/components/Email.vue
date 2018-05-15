@@ -1,7 +1,6 @@
 <template>
   <div class="Send">
     <table class="Send__table">
-    
       <tr class="Send__table__main">
         <td>Released:</td>
         <td class="Send__counterValue">{{counterValue}}</td>
@@ -50,7 +49,6 @@
     </table>
   </div>
 </template>
-
 
 <script>
 import { mapGetters } from "vuex";
@@ -115,8 +113,7 @@ export default {
   right: 0;
   width: 70vw;
   height: 35vw;
-  opacity: 0.6;
-  /* box-shadow: 0 0 8px 0 black; */
+  opacity: 0.7;
   background-color: black;
   color: white;
   font-size: 3vw;
@@ -132,7 +129,6 @@ export default {
   height: 3vw;
 }
 .Send__table td {
-  /* border: 1px solid red; */
   width: 50%;
   vertical-align: middle;
 }
@@ -204,7 +200,6 @@ export default {
 }
 
 .Send__button {
-  /* margin: 1vw; */
   border: none;
   padding: 0.5vw 1vw;
   font-size: 3vw;
@@ -220,9 +215,6 @@ export default {
 
 .Send__button:hover {
   background: red;
-
   box-shadow: 0 0 8px 0 red;
 }
 </style>
-
-

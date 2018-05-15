@@ -5,20 +5,18 @@
 </template>
 
 <script>
-import preloaderImage from '../assets/preloader.gif'
-
+import preloaderImage from "../assets/preloader.gif";
 export default {
-  data(){
+  data() {
     return {
       preloaderImage
-    }
+    };
   }
-}
+};
 </script>
 
-
 <style >
-  .Preloader {
+.Preloader {
   background-color: white;
   display: flex;
   justify-content: center;
@@ -28,7 +26,6 @@ export default {
   height: 100%;
   z-index: 99;
 }
-
 </style>
 
 

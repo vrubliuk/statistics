@@ -39,7 +39,7 @@ export default {
     handleClick() {
       if (this.inputValue !== "") {
         const emailRegExp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
-        if(emailRegExp.test(this.inputValue)) {
+        if (emailRegExp.test(this.inputValue)) {
           this.addRecipient(this.inputValue);
           this.inputValue = "";
         } else {

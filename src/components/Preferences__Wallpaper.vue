@@ -4,7 +4,7 @@
       <div 
         class="image" 
         :class="{'image-current': currentWallpaperNumber == number }"
-        v-for="(wallpaper, number) in wallpapers" 
+        v-for="(wallpaper, number) in wallpapersCompressed" 
         :key="wallpaper" 
         :style="{'background-image': `url(${wallpaper})`}"
         @click="setWallpaper(number)"        
@@ -14,16 +14,15 @@
   </div>
 </template>
 
-
 <script>
-import { wallpapers } from "../wallpapers";
+import { wallpapersCompressed } from "../wallpapers";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
 export default {
   data() {
     return {
-      wallpapers
+      wallpapersCompressed
     };
   },
   computed: {
@@ -42,6 +41,7 @@ export default {
   padding: 1vw 1vw;
   font-size: 0;
 }
+
 .imagesContainer {
   position: absolute;
   top: 0;
@@ -52,6 +52,7 @@ export default {
   height: 33vw;
   width: 54vw;
 }
+
 .image {
   display: inline-block;
   height: 6.25vw;
@@ -74,7 +75,3 @@ export default {
   }
 }
 </style>
-
-
-
-

@@ -22,11 +22,10 @@ export default {
 };
 </script>
 
-
 <style>
 .Navigation {
   height: 20vw;
-  opacity: 0.6;
+  opacity: 0.7;
   position: absolute;
   margin: auto;
   top: 0;

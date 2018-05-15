@@ -1,5 +1,5 @@
 const state = {
-  recipients: ['kpolishko@plslogistics.com']
+  recipients: ["kpolishko@plslogistics.com"]
 };
 
 const getters = {
@@ -10,7 +10,7 @@ const getters = {
 
 const mutations = {
   setRecipients: (state, payload) => {
-    state.recipients = payload
+    state.recipients = payload;
   },
   addRecipient: (state, payload) => {
     state.recipients.push(payload);

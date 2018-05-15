@@ -35,32 +35,27 @@
           </label>
         </td>
       </tr>
-
       <tr v-if="signatureType === 'default' || signatureType === 'custom' ">
-
         <td class="textareaContainer" colspan="2">
           <textarea rows="5" placeholder="Add your signature here" :disabled="signatureType === 'default'" v-model="text" ></textarea>
         </td>
-        
       </tr>
-
-
     </table>
   </div>
 </template>
-
 
 <script>
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      
-    }
-  },
   computed: {
-    ...mapGetters(["userName", 'userSurname', 'userTeamLead', 'signatureType', 'signatureText']),
+    ...mapGetters([
+      "userName",
+      "userSurname",
+      "userTeamLead",
+      "signatureType",
+      "signatureText"
+    ]),
     name: {
       get() {
         return this.userName;
@@ -100,16 +95,19 @@ export default {
       set(value) {
         this.setSignatureCustom(value);
       }
-
     }
-
   },
   methods: {
-    ...mapMutations(["setUserName", "setUserSurname", 'setUserTeamLead', 'setSignatureType', 'setSignatureCustom'])
+    ...mapMutations([
+      "setUserName",
+      "setUserSurname",
+      "setUserTeamLead",
+      "setSignatureType",
+      "setSignatureCustom"
+    ])
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 .container {
