@@ -132,6 +132,7 @@ td:last-child {
 }
 
 input {
+  user-select: auto;
   vertical-align: middle;
   border: 0.1vw solid white;
   padding: 0;
@@ -249,6 +250,7 @@ input {
 }
 
 textarea {
+  user-select: auto;
   color: black;
   margin: 0.7vw 0;
   width: 100%;

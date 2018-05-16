@@ -40,8 +40,12 @@ export default {
       if (this.inputValue !== "") {
         const emailRegExp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
         if (emailRegExp.test(this.inputValue)) {
-          this.addRecipient(this.inputValue);
-          this.inputValue = "";
+          if(this.recipientsArray.indexOf(this.inputValue) < 0) {
+            this.addRecipient(this.inputValue);
+            this.inputValue = "";
+          } else {
+            alert("This email is already in the list.");
+          }
         } else {
           alert("Please enter a valid email address.");
         }
@@ -98,6 +102,7 @@ td {
 }
 
 input {
+  user-select: auto;
   vertical-align: middle;
   border: 0.1vw solid white;
   padding: 0;
@@ -126,6 +131,7 @@ input {
 
 .recipient {
   div:first-child {
+    user-select: text;
     display: inline-block;
   }
 }

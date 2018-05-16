@@ -113,6 +113,7 @@ td:last-child {
 }
 
 input {
+  user-select: auto;
   vertical-align: middle;
   border: 0.1vw solid white;
   padding: 0;
